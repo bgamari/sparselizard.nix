@@ -7,12 +7,10 @@ stdenv.mkDerivation {
     rev = "d1a5c931b762d0da8183dea55b69f7fd59e00a48";
   };
 
-  buildInputs = [ metis parmetis scotch openblas gfortran ];
-  MAKE_INC = ''
-    LSCOTCHDIR = ${scotch}/lib
-    ISCOTCH = -I${scotch}/include
-    LSCOTCH = -L${scotch}/lib -lesmumps -lscotch -lscotcherr
+  nativeBuildInputs = [ gfortran ];
+  propagatedBuildInputs = [ metis parmetis openblas ];
 
+  MAKE_INC = ''
     LPORDDIR = $(topdir)/PORD/lib/
     IPORD    = -I$(topdir)/PORD/include/
     LPORD    = -L$(LPORDDIR) -lpord
@@ -20,7 +18,7 @@ stdenv.mkDerivation {
     LMETISDIR = ${metis}/lib
     IMETIS    = -I${metis}/include/metis
 
-    ORDERINGSF = -Dmetis -Dpord -Dscotch
+    ORDERINGSF = -Dmetis -Dpord
     ORDERINGSC  = $(ORDERINGSF)
 
     LORDERINGS = $(LMETIS) $(LPORD) $(LSCOTCH)
@@ -63,7 +61,9 @@ stdenv.mkDerivation {
   installPhase = ''
     ls -R .
     mkdir -p $out/lib
+    cp libseq/libmpiseq.a $out/lib
     cp lib/*.a $out/lib
+    cp -r include $out/include
   '';
 }
 

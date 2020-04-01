@@ -1,4 +1,5 @@
-{ stdenv, gfortran, blas, liblapack, python, mumps }:
+{ stdenv, pkgconfig, gfortran, blas, liblapack, python, mpi,
+  metis, mumps, scotch, scalapack, sowing }:
 
 stdenv.mkDerivation {
   name = "petsc";
@@ -8,7 +9,10 @@ stdenv.mkDerivation {
   };
 
   nativeBuildInputs = [
-    blas gfortran.cc.lib liblapack python mumps
+    pkgconfig gfortran
+  ];
+  buildInputs = [
+    blas liblapack python mumps scalapack sowing mpi
   ];
   enableParallelBuilding = true;
 
@@ -25,9 +29,18 @@ stdenv.mkDerivation {
   PETSC_ARCH = "arch-linux2-c-opt";
 
   configureFlags = [
+    "--with-fc=gfortran"
     "--with-openmp"
     "--with-mpi=0"
+    #"--with-ptscotch"
+    #"--with-ptscotch-dir=${scotch}"
+    "--with-metis"
+    "--with-metis-dir=${metis}"
+    "--with-mumps-serial"
+    "--with-mumps-dir=${mumps}"
+    #"--with-scalapack"
     "--with-shared-libraries=1"
+    "--with-scalar-type=real"
     "--with-debugging=0"
     "--with-blas-lib=[${blas}/lib/libblas.a,${gfortran.cc.lib}/lib/libgfortran.a]"
     "--with-lapack-lib=[${liblapack}/lib/liblapack.a,${gfortran.cc.lib}/lib/libgfortran.a]"
