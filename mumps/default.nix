@@ -1,4 +1,4 @@
-{ stdenv, metis, parmetis, scotch, openblas, gfortran }:
+{ stdenv, metis, parmetis, scotch, blas, gfortran }:
 
 stdenv.mkDerivation {
   name = "mumps";
@@ -8,7 +8,7 @@ stdenv.mkDerivation {
   };
 
   nativeBuildInputs = [ gfortran ];
-  propagatedBuildInputs = [ metis parmetis openblas ];
+  propagatedBuildInputs = [ metis parmetis blas ];
 
   MAKE_INC = ''
     LPORDDIR = $(topdir)/PORD/lib/

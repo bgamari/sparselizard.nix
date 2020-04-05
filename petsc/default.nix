@@ -5,7 +5,7 @@ stdenv.mkDerivation {
   name = "petsc";
   src = fetchGit {
     url = "https://github.com/petsc/petsc";
-    rev = "33f32bedbeeda898f7c48846933db3cc6191ec7e";
+    rev = "523e5e355c3e1d4e86a5830eb813cd33cdab4940";
   };
 
   nativeBuildInputs = [

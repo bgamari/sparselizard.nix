@@ -3,11 +3,13 @@
 with pkgs;
 let
   mpi = mpich;
-  mumps = callPackage ./mumps {};
+  blas = openblasCompat;
+
+  mumps = callPackage ./mumps { inherit blas; };
   petsc = callPackage ./petsc {
-    inherit mumps sowing mpi;
+    inherit mumps sowing mpi blas;
   };
-  slepc = callPackage ./slepc { inherit petsc; };
+  slepc = callPackage ./slepc { inherit petsc blas; };
   sowing = callPackage ./sowing { };
   scalapack = pkgs.scalapack.override { inherit mpi; };
 
@@ -20,7 +22,7 @@ let
         gnumake
         gcc
         gfortran
-        openblas
+        blas
         petsc
         slepc
         openmpi
