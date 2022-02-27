@@ -2,32 +2,20 @@
 
 with pkgs;
 let
-  mpi = mpich;
+  mpi = openmpi;
   blas = openblasCompat;
 
   mumps = callPackage ./mumps { inherit blas; };
   petsc = callPackage ./petsc {
     inherit mumps sowing mpi blas;
   };
-  slepc = callPackage ./slepc { inherit petsc blas; };
+  slepc = callPackage ./slepc { inherit mpi petsc blas; };
   sowing = callPackage ./sowing { };
   scalapack = pkgs.scalapack.override { inherit mpi; };
 
-  sparselizard = 
-    stdenv.mkDerivation {
-      name = "sparselizard";
-      INCL = "-I${petsc}/include/petsc/mpiuni";
-      LIBS = "-lopenblas -lpetsc -lslepc";
-      buildInputs = [
-        gnumake
-        gcc
-        gfortran
-        blas
-        petsc
-        slepc
-        openmpi
-      ];
-    };
+  sparselizard = callPackage ./sparselizard {
+    inherit petsc blas slepc openmpi mumps;
+  };
 
 in
 sparselizard

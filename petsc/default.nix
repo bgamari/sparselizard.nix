@@ -1,15 +1,16 @@
 { stdenv, pkgconfig, gfortran, blas, liblapack, python, mpi,
   metis, mumps, scotch, scalapack, sowing }:
 
-stdenv.mkDerivation {
+stdenv.mkDerivation rec {
   name = "petsc";
-  src = fetchGit {
-    url = "https://github.com/petsc/petsc";
-    rev = "523e5e355c3e1d4e86a5830eb813cd33cdab4940";
+  version = "3.16.3";
+  src = fetchTarball {
+    url = "http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-${version}.tar.gz";
+    sha256 = "sha256:0yplx2hfp7glm5jhckam0gnhfznhki6ki318b59pzmx7pyvvaz6j";
   };
 
   nativeBuildInputs = [
-    pkgconfig gfortran
+    pkgconfig gfortran python
   ];
   buildInputs = [
     blas liblapack python mumps scalapack sowing mpi
@@ -48,6 +49,10 @@ stdenv.mkDerivation {
     "CXXOPTFLAGS=-O3"
     "FOPTFLAGS=-O3"
   ];
+
+  configurePhase = ''
+    python configure --prefix=$out $configureFlags
+    '';
 
   installPhase = ''
     make install
