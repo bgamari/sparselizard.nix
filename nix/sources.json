@@ -1,0 +1,56 @@
+{
+    "niv": {
+        "branch": "master",
+        "description": "Easy dependency management for Nix projects",
+        "homepage": "https://github.com/nmattia/niv",
+        "owner": "nmattia",
+        "repo": "niv",
+        "rev": "9cb7ef336bb71fd1ca84fc7f2dff15ef4b033f2a",
+        "sha256": "1ajyqr8zka1zlb25jx1v4xys3zqmdy3prbm1vxlid6ah27a8qnzh",
+        "type": "tarball",
+        "url": "https://github.com/nmattia/niv/archive/9cb7ef336bb71fd1ca84fc7f2dff15ef4b033f2a.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "nixpkgs": {
+        "branch": "release-21.11",
+        "description": "Nix Packages collection",
+        "homepage": "",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "aee1e371876220d1be4004b83549ce2073994701",
+        "sha256": "0dfva1i9989x9jrxn8wqj47wc42qb44w6xs8glj5llsbyi8k3i9h",
+        "type": "tarball",
+        "url": "https://github.com/NixOS/nixpkgs/archive/aee1e371876220d1be4004b83549ce2073994701.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "petsc": {
+        "branch": "main",
+        "description": "Mirror of https://gitlab.com/petsc/petsc",
+        "homepage": "http://mcs.anl.gov/petsc",
+        "owner": "petsc",
+        "repo": "petsc",
+        "rev": "9e74e7e80ec1fce42b0710f6d3f9f396d76e5693",
+        "sha256": "03zb3d2w48r7apgh7afnfj8ad0mv0j4xa0rpmxw187ynwqmf1n6l",
+        "type": "tarball",
+        "url": "https://github.com/petsc/petsc/archive/9e74e7e80ec1fce42b0710f6d3f9f396d76e5693.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "sparselizard": {
+        "branch": "master",
+        "description": "C++ FEM library | user-friendly | multi-physics | hp-adaptive | HPC",
+        "homepage": "http://www.sparselizard.org",
+        "owner": "halbux",
+        "repo": "sparselizard",
+        "rev": "5d9a70c8394093360d5ef81e7a52061519207305",
+        "sha256": "01x6naa9k1rp6m5byq1qvv3hjh1pr5z9w80hfcy43q1sv3lgjwq4",
+        "type": "tarball",
+        "url": "https://github.com/halbux/sparselizard/archive/5d9a70c8394093360d5ef81e7a52061519207305.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "slepc": {
+        "branch": "main",
+        "repo": "https://gitlab.com/slepc/slepc/",
+        "rev": "1c7062e903f23abcfb0bbef4bcabb6700f3ffb66",
+        "type": "git"
+    }
+}
