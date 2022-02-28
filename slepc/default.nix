@@ -5,10 +5,7 @@ stdenv.mkDerivation {
   name = "slepc";
   nativeBuildInputs = [ python3 gfortran git ];
   buildInputs = [ mpi petsc blas liblapack ];
-  src = fetchTarball {
-    url = "https://slepc.upv.es/download/distrib/slepc-3.16.2.tar.gz";
-    sha256 = "sha256:1iavw9iad8cknxf7dhkacf9z63bgd2sx87hx2l2r5zkrz0md9hjx";
-  };
+  src = (import ../nix/sources.nix).slepc;
   PETSC_DIR = petsc;
   preConfigure = ''
     patchShebangs .

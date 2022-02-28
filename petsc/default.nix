@@ -3,11 +3,7 @@
 
 stdenv.mkDerivation rec {
   name = "petsc";
-  version = "3.16.3";
-  src = fetchTarball {
-    url = "http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-${version}.tar.gz";
-    sha256 = "sha256:0yplx2hfp7glm5jhckam0gnhfznhki6ki318b59pzmx7pyvvaz6j";
-  };
+  src = (import ../nix/sources.nix).petsc;
 
   nativeBuildInputs = [
     pkgconfig gfortran python
@@ -52,7 +48,7 @@ stdenv.mkDerivation rec {
 
   configurePhase = ''
     python configure --prefix=$out $configureFlags
-    '';
+  '';
 
   installPhase = ''
     make install
