@@ -1,5 +1,5 @@
-{ stdenv, cmake, python3, gfortran, git,
-  petsc, blas, slepc, openmpi, mumps, metis }:
+{ stdenv, src, cmake, python3, gfortran, git,
+  petsc, blas, slepc, mpi, mumps, metis }:
 
 stdenv.mkDerivation {
   name = "sparselizard";
@@ -8,12 +8,12 @@ stdenv.mkDerivation {
     blas
     petsc
     slepc
-    openmpi
+    mpi
     mumps
   ];
+  inherit src;
   INCL = "-I${petsc}/include/petsc/mpiuni";
   #LIBS = "-lopenblas -lpetsc -lslepc -lmpi";
-  src = (import ../nix/sources.nix).sparselizard;
   cmakeFlags = [
     "-DPETSC_PATH=${petsc}"
     "-DPETSCCONF_INCLUDE_PATH=${petsc}/include"
