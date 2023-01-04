@@ -6,7 +6,7 @@
   inputs.nixpkgs.url = "github:bgamari/nixpkgs?ref=wip/gmsh-shared";
 
   inputs.sparselizard = {
-    url = "github:halbux/sparselizard/5d9a70c8394093360d5ef81e7a52061519207305";
+    url = "github:halbux/sparselizard/9645b6b8e0003f80b88d4071890d6421b7b8a444";
     flake = false;
   };
 

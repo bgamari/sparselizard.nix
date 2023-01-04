@@ -131,14 +131,17 @@
         "sowing": "sowing"
       },
       "locked": {
-        "lastModified": 1672796192,
-        "narHash": "sha256-3O8wtIGDRIBs1hV4mpmURKVcsJStHpfaPUco8by8GAg=",
-        "path": "/home/ben/frosty/sparselizard.nix/solvers.nix",
-        "type": "path"
+        "lastModified": 1672796206,
+        "narHash": "sha256-M/KjIY6M4wGksSIFt8FEUB/w9rLuYit6EPoFSO1V6rs=",
+        "owner": "bgamari",
+        "repo": "solvers.nix",
+        "rev": "4d48ae1f1101242def5b4c90af73934507166746",
+        "type": "github"
       },
       "original": {
-        "path": "/home/ben/frosty/sparselizard.nix/solvers.nix",
-        "type": "path"
+        "owner": "bgamari",
+        "repo": "solvers.nix",
+        "type": "github"
       }
     },
     "sowing": {
@@ -160,17 +163,17 @@
     "sparselizard": {
       "flake": false,
       "locked": {
-        "lastModified": 1645867103,
-        "narHash": "sha256-BHP56Ng64EE8cxAgnn7JN0AJx944YL9KNTeHmZSypgc=",
+        "lastModified": 1668345426,
+        "narHash": "sha256-aXq3CKGPLZCAOSQrxfFvpyF2xOiar3zxjp6ETK/1eq8=",
         "owner": "halbux",
         "repo": "sparselizard",
-        "rev": "5d9a70c8394093360d5ef81e7a52061519207305",
+        "rev": "9645b6b8e0003f80b88d4071890d6421b7b8a444",
         "type": "github"
       },
       "original": {
         "owner": "halbux",
         "repo": "sparselizard",
-        "rev": "5d9a70c8394093360d5ef81e7a52061519207305",
+        "rev": "9645b6b8e0003f80b88d4071890d6421b7b8a444",
         "type": "github"
       }
     }
