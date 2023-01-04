@@ -4,11 +4,13 @@
 stdenv.mkDerivation {
   name = "sparselizard";
   nativeBuildInputs = [ cmake ];
+  propagatedBuildInputs = [
+    petsc
+    mpi
+  ];
   buildInputs = [
     blas
-    petsc
     slepc
-    mpi
     mumps
   ];
   inherit src;
