@@ -131,11 +131,11 @@
         "sowing": "sowing"
       },
       "locked": {
-        "lastModified": 1672796206,
-        "narHash": "sha256-M/KjIY6M4wGksSIFt8FEUB/w9rLuYit6EPoFSO1V6rs=",
+        "lastModified": 1673059461,
+        "narHash": "sha256-MViCbaPhupZKbThcLLQnIZGK8uYmcyin08ItQsGxNNs=",
         "owner": "bgamari",
         "repo": "solvers.nix",
-        "rev": "4d48ae1f1101242def5b4c90af73934507166746",
+        "rev": "d87b3884b53b868d1a9970b9fe1138679c043037",
         "type": "github"
       },
       "original": {
